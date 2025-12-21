@@ -9,15 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthSignUpRouteImport } from './routes/auth/sign-up'
 import { Route as AuthSignInRouteImport } from './routes/auth/sign-in'
+import { Route as AppSubscriptionsRouteImport } from './routes/app/subscriptions'
+import { Route as AppSettingsRouteImport } from './routes/app/settings'
+import { Route as AppSessionsRouteImport } from './routes/app/sessions'
+import { Route as AppReportsRouteImport } from './routes/app/reports'
+import { Route as AppRecordsRouteImport } from './routes/app/records'
+import { Route as AppProfileRouteImport } from './routes/app/profile'
+import { Route as AppPaymentsRouteImport } from './routes/app/payments'
+import { Route as AppPatientsRouteImport } from './routes/app/patients'
+import { Route as AppDashboardRouteImport } from './routes/app/dashboard'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AuthSignUpRoute = AuthSignUpRouteImport.update({
   id: '/auth/sign-up',
   path: '/auth/sign-up',
@@ -28,46 +31,150 @@ const AuthSignInRoute = AuthSignInRouteImport.update({
   path: '/auth/sign-in',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppSubscriptionsRoute = AppSubscriptionsRouteImport.update({
+  id: '/app/subscriptions',
+  path: '/app/subscriptions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/app/settings',
+  path: '/app/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppSessionsRoute = AppSessionsRouteImport.update({
+  id: '/app/sessions',
+  path: '/app/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/app/reports',
+  path: '/app/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRecordsRoute = AppRecordsRouteImport.update({
+  id: '/app/records',
+  path: '/app/records',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/app/profile',
+  path: '/app/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppPaymentsRoute = AppPaymentsRouteImport.update({
+  id: '/app/payments',
+  path: '/app/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppPatientsRoute = AppPatientsRouteImport.update({
+  id: '/app/patients',
+  path: '/app/patients',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/app/dashboard',
+  path: '/app/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/patients': typeof AppPatientsRoute
+  '/app/payments': typeof AppPaymentsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/records': typeof AppRecordsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/sessions': typeof AppSessionsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/subscriptions': typeof AppSubscriptionsRoute
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/patients': typeof AppPatientsRoute
+  '/app/payments': typeof AppPaymentsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/records': typeof AppRecordsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/sessions': typeof AppSessionsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/subscriptions': typeof AppSubscriptionsRoute
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/patients': typeof AppPatientsRoute
+  '/app/payments': typeof AppPaymentsRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/records': typeof AppRecordsRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/sessions': typeof AppSessionsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/subscriptions': typeof AppSubscriptionsRoute
   '/auth/sign-in': typeof AuthSignInRoute
   '/auth/sign-up': typeof AuthSignUpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/auth/sign-in' | '/auth/sign-up'
+  fullPaths:
+    | '/app/dashboard'
+    | '/app/patients'
+    | '/app/payments'
+    | '/app/profile'
+    | '/app/records'
+    | '/app/reports'
+    | '/app/sessions'
+    | '/app/settings'
+    | '/app/subscriptions'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/auth/sign-in' | '/auth/sign-up'
-  id: '__root__' | '/' | '/auth/sign-in' | '/auth/sign-up'
+  to:
+    | '/app/dashboard'
+    | '/app/patients'
+    | '/app/payments'
+    | '/app/profile'
+    | '/app/records'
+    | '/app/reports'
+    | '/app/sessions'
+    | '/app/settings'
+    | '/app/subscriptions'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
+  id:
+    | '__root__'
+    | '/app/dashboard'
+    | '/app/patients'
+    | '/app/payments'
+    | '/app/profile'
+    | '/app/records'
+    | '/app/reports'
+    | '/app/sessions'
+    | '/app/settings'
+    | '/app/subscriptions'
+    | '/auth/sign-in'
+    | '/auth/sign-up'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppPatientsRoute: typeof AppPatientsRoute
+  AppPaymentsRoute: typeof AppPaymentsRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppRecordsRoute: typeof AppRecordsRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppSessionsRoute: typeof AppSessionsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppSubscriptionsRoute: typeof AppSubscriptionsRoute
   AuthSignInRoute: typeof AuthSignInRoute
   AuthSignUpRoute: typeof AuthSignUpRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/auth/sign-up': {
       id: '/auth/sign-up'
       path: '/auth/sign-up'
@@ -82,11 +189,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthSignInRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/subscriptions': {
+      id: '/app/subscriptions'
+      path: '/app/subscriptions'
+      fullPath: '/app/subscriptions'
+      preLoaderRoute: typeof AppSubscriptionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/app/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/sessions': {
+      id: '/app/sessions'
+      path: '/app/sessions'
+      fullPath: '/app/sessions'
+      preLoaderRoute: typeof AppSessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/app/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/records': {
+      id: '/app/records'
+      path: '/app/records'
+      fullPath: '/app/records'
+      preLoaderRoute: typeof AppRecordsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/app/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/payments': {
+      id: '/app/payments'
+      path: '/app/payments'
+      fullPath: '/app/payments'
+      preLoaderRoute: typeof AppPaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/patients': {
+      id: '/app/patients'
+      path: '/app/patients'
+      fullPath: '/app/patients'
+      preLoaderRoute: typeof AppPatientsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/app/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  AppDashboardRoute: AppDashboardRoute,
+  AppPatientsRoute: AppPatientsRoute,
+  AppPaymentsRoute: AppPaymentsRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppRecordsRoute: AppRecordsRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppSessionsRoute: AppSessionsRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppSubscriptionsRoute: AppSubscriptionsRoute,
   AuthSignInRoute: AuthSignInRoute,
   AuthSignUpRoute: AuthSignUpRoute,
 }

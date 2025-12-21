@@ -80,12 +80,12 @@ export function SignInForm({
 							<Field>
 								<div className='flex items-center'>
 									<FieldLabel htmlFor='password'>Senha</FieldLabel>
-									<a
-										href='#'
+									<button
+										type='button'
 										className='ml-auto text-sm underline-offset-2 hover:underline'
 									>
 										Esqueceu a senha?
-									</a>
+									</button>
 								</div>
 								<Input
 									type='password'
