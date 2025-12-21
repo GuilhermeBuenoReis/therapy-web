@@ -1,7 +1,7 @@
 import { Bell } from 'lucide-react';
 import { Button } from './ui/button';
 
-export function DashboardHeader() {
+export function Header() {
 	return (
 		<header className='flex items-center justify-end gap-4 pb-4'>
 			<Button
