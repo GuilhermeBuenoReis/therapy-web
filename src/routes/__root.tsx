@@ -17,8 +17,8 @@ interface MyRouterContext {
 export const Route = createRootRouteWithContext<MyRouterContext>()({
 	component: () => (
 		<>
-			<main className='h-dvh w-screen bg-background text-foreground'>
-				<ResizablePanelGroup className='min-h-dvh min-w-full h-full'>
+			<main className='min-h-screen w-screen bg-background text-foreground'>
+				<ResizablePanelGroup className='min-h-screen min-w-full h-full'>
 					<ResizablePanel defaultSize={15}>
 						<Sidebar />
 					</ResizablePanel>
@@ -29,9 +29,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 					<ResizablePanel
 						defaultSize={76}
 						minSize={60}
-						className='flex-1 min-w-0'
+						className='flex-1 min-w-0 overflow-y-auto'
 					>
-						<div className='flex-1 h-full px-8 py-6 min-w-0'>
+						<div className='flex-1 min-h-full px-8 py-6 min-w-0'>
 							<Outlet />
 						</div>
 					</ResizablePanel>

@@ -4,7 +4,6 @@ import {
 	getCoreRowModel,
 	useReactTable,
 } from '@tanstack/react-table';
-import { cn } from '@/lib/utils';
 import {
 	Table,
 	TableBody,
@@ -13,6 +12,7 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table';
+import { cn } from '@/lib/utils';
 
 type DataTableProps<TData, TValue> = {
 	columns: ColumnDef<TData, TValue>[];
@@ -49,13 +49,16 @@ export function PatientDataTable<TData, TValue>({
 							return (
 								<TableHead
 									key={header.id}
-									className={cn('px-4 py-3 font-semibold', meta?.headerClassName)}
+									className={cn(
+										'px-4 py-3 font-semibold',
+										meta?.headerClassName
+									)}
 								>
 									{header.isPlaceholder
 										? null
 										: flexRender(
 												header.column.columnDef.header,
-												header.getContext(),
+												header.getContext()
 											)}
 								</TableHead>
 							);

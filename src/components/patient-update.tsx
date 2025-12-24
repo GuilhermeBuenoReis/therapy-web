@@ -29,7 +29,7 @@ const updatePatientSchema = z.object({
 	note: z.string().optional().nullable(),
 });
 
-type FormValues = z.infer<typeof updatePatientSchema>;
+type UpdatePatientShemaFormValues = z.infer<typeof updatePatientSchema>;
 
 export function PatientUpdateSheet({
 	patient,
@@ -43,7 +43,7 @@ export function PatientUpdateSheet({
 		handleSubmit,
 		reset,
 		formState: { isSubmitting, errors },
-	} = useForm<FormValues>({
+	} = useForm<UpdatePatientShemaFormValues>({
 		resolver: zodResolver(updatePatientSchema),
 		defaultValues: {
 			name: patient.name ?? '',
@@ -62,7 +62,7 @@ export function PatientUpdateSheet({
 		});
 	}, [patient, reset]);
 
-	const onSubmit = async (values: FormValues) => {
+	async function handleUpdatePatient(values: UpdatePatientShemaFormValues) {
 		const payload: Patient = {
 			...patient,
 			name: values.name,
@@ -79,8 +79,7 @@ export function PatientUpdateSheet({
 
 		onUpdated?.(payload);
 		setOpen(false);
-	};
-
+	}
 
 	return (
 		<Sheet open={open} onOpenChange={setOpen}>
@@ -94,7 +93,7 @@ export function PatientUpdateSheet({
 			<SheetContent side='right' className='sm:max-w-md'>
 				<form
 					className='flex h-full flex-col gap-6'
-					onSubmit={handleSubmit(onSubmit)}
+					onSubmit={handleSubmit(handleUpdatePatient)}
 				>
 					<SheetHeader>
 						<SheetTitle>Atualizar informações</SheetTitle>

@@ -20,6 +20,7 @@ import {
 	FieldLabel,
 } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
+import { Textarea } from './ui/textarea';
 
 const createPatientSchema = z.object({
 	name: z.string().min(1, { message: 'Informe o nome do paciente.' }),
@@ -50,22 +51,21 @@ export function CreateNewPatient() {
 		},
 	});
 
-	const onSubmit = async (values: CreatePatientFormValues) => {
+	async function handleCreateNewPatient(values: CreatePatientFormValues) {
 		console.log('Novo paciente', values);
 		reset();
 		setOpen(false);
-	};
+	}
+
+	function handleOnOpenChage(nextOpen: boolean) {
+		setOpen(nextOpen);
+		if (!nextOpen) {
+			reset();
+		}
+	}
 
 	return (
-		<Dialog
-			open={open}
-			onOpenChange={(nextOpen) => {
-				setOpen(nextOpen);
-				if (!nextOpen) {
-					reset();
-				}
-			}}
-		>
+		<Dialog open={open} onOpenChange={handleOnOpenChage}>
 			<DialogTrigger asChild>
 				<Button className='cursor-pointer'>Novo paciente</Button>
 			</DialogTrigger>
@@ -80,7 +80,7 @@ export function CreateNewPatient() {
 
 				<form
 					className='flex flex-col gap-6'
-					onSubmit={handleSubmit(onSubmit)}
+					onSubmit={handleSubmit(handleCreateNewPatient)}
 					noValidate
 				>
 					<FieldGroup>
@@ -129,8 +129,7 @@ export function CreateNewPatient() {
 
 						<Field>
 							<FieldLabel>Observações</FieldLabel>
-							<textarea
-								className='border-input placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 min-h-24 w-full min-w-0 rounded-md border bg-transparent px-3 py-2 text-sm shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50'
+							<Textarea
 								rows={4}
 								{...register('note')}
 								aria-invalid={errors.note ? 'true' : 'false'}

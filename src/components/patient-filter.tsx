@@ -71,7 +71,7 @@ export function PatientFilter({
 						<Button
 							type='button'
 							variant='outline'
-							className='min-w-[8.5rem] justify-between'
+							className='min-w-34 justify-between'
 							aria-label='Filtrar por status'
 						>
 							{statusOptions.find((option) => option.value === currentStatus)
@@ -79,7 +79,7 @@ export function PatientFilter({
 							<ChevronDown className='size-4 text-muted-foreground' />
 						</Button>
 					</DropdownMenuTrigger>
-					<DropdownMenuContent align='end' className='min-w-[9.5rem]'>
+					<DropdownMenuContent align='end' className='min-w-38'>
 						<DropdownMenuRadioGroup
 							value={currentStatus}
 							onValueChange={(value) =>

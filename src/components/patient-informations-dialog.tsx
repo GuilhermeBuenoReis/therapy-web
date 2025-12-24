@@ -79,6 +79,7 @@ export function PatientInformationsDialog({
 	const [isDeleting, setIsDeleting] = useState(false);
 	const createdAtDate = formatDateString(patient.createdAt);
 	const createdAtTime = formatTimeString(patient.createdAt);
+
 	const updatedAtDate = patient.updatedAt
 		? formatDateString(patient.updatedAt)
 		: null;
@@ -86,12 +87,12 @@ export function PatientInformationsDialog({
 		? formatTimeString(patient.updatedAt)
 		: null;
 
-	const handleDelete = async () => {
+	async function handleDeletePatient() {
 		setIsDeleting(true);
 		await fetch(`/api/patients/${patient.id}`, { method: 'DELETE' });
 		onDeleted?.(patient.id);
 		setIsDeleting(false);
-	};
+	}
 
 	return (
 		<Dialog>
@@ -188,7 +189,7 @@ export function PatientInformationsDialog({
 							type='button'
 							variant='destructive'
 							className='w-full sm:flex-1 px-5 cursor-pointer'
-							onClick={handleDelete}
+							onClick={handleDeletePatient}
 							disabled={isDeleting}
 						>
 							{isDeleting ? 'Excluindo...' : 'Excluir paciente'}
