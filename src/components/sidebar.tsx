@@ -3,6 +3,7 @@ import {
 	Calendar,
 	ChartNoAxesColumnIncreasing,
 	CreditCard,
+	FileText,
 	Home,
 	Star,
 	Users,
@@ -40,6 +41,12 @@ export function Sidebar() {
 						icon={<Calendar size={16} />}
 						title='Sessões'
 						to='/app/sessions'
+					/>
+
+					<SidebarItem
+						icon={<FileText size={16} />}
+						title='Registros'
+						to='/app/records'
 					/>
 
 					<SidebarItem

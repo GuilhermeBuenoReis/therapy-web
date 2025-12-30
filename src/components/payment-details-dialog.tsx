@@ -6,13 +6,13 @@ import {
 	Dialog,
 	DialogClose,
 	DialogContent,
-	DialogDescription,
 	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
+
 type PaymentStatus = 'pending' | 'paid' | 'overdue';
 
 type PaymentStatusStyle = {
@@ -83,7 +83,6 @@ function formatDate(date?: string | null, withTime = false) {
 export function PaymentDetailsDialog({
 	payment,
 	statusInfo,
-	onViewDetails,
 	onEdit,
 	onDelete,
 	children,
