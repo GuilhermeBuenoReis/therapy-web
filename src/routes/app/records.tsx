@@ -4,6 +4,7 @@ import { CreateNewRecords } from '@/components/create-new-record';
 import { Header } from '@/components/header';
 import { HeaderTitle } from '@/components/header-title';
 import { RecordsConfidentialCard } from '@/components/records-confidential-card';
+import { RecordsList } from '@/components/records-list';
 import { RecordsPatientFilter } from '@/components/records-patient-filter';
 
 const recordsSearchSchema = z.object({
@@ -30,7 +31,10 @@ function RouteComponent() {
 
 			<RecordsConfidentialCard />
 
-			<RecordsPatientFilter />
+			<div className='space-y-4'>
+				<RecordsPatientFilter />
+				<RecordsList />
+			</div>
 		</div>
 	);
 }

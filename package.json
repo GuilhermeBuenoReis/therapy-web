@@ -9,7 +9,9 @@
     "test": "vitest run",
     "format": "prettier \"src/**/*.{js,jsx,ts,tsx}\" index.html --write && biome format",
     "lint": "biome lint",
-    "check": "biome check"
+    "check": "biome check",
+    "server": "node mock-server/server.js",
+    "mock:generate": "node mock-server/generate-db.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -32,6 +34,7 @@
     "clsx": "^2.1.1",
     "dayjs": "^1.11.19",
     "framer-motion": "^12.23.26",
+    "json-server": "1.0.0-beta.3",
     "lucide-react": "^0.544.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.4",
+    "@faker-js/faker": "^10.2.0",
     "@tanstack/devtools-vite": "^0.3.11",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
